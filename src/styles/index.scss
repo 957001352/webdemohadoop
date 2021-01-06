@@ -1,0 +1,503 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+aside {
+  background: #eef1f6;
+  padding: 8px 24px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  display: block;
+  line-height: 32px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    color: #337ab7;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 20px;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(90deg, rgba(32, 182, 249, 1) 0%, rgba(32, 182, 249, 1) 0%, rgba(33, 120, 241, 1) 100%, rgba(33, 120, 241, 1) 100%);
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+
+
+// 搜索框样式
+.inputCls{
+  margin-bottom: 16px;
+  width: 180px;
+  .el-input__inner{
+    height: 32px;
+    line-height: 32px;
+    border: solid 1px #d2d2d2;
+    height: 32px;
+    border-radius: 4px;
+  }
+  .el-input__icon{
+    line-height: 32px;
+  }
+  ::-ms-input-placeholder {
+    color: #969696;
+  }
+}
+.searchInfo{
+  margin-bottom: 0px !important;
+  .el-button{
+    margin-bottom: 16px !important;
+  }
+}
+// 搜索名称
+.seachname{
+  color: #323232;
+  font-size: 14px;
+  margin-right: 7px;
+}
+// 搜索按钮样式
+.primaryBtn{
+  height: 32px;
+  line-height: 32px;
+	background-color: #006fe6;
+  border-radius: 4px;
+  padding: 0px 8px;
+  min-width: 90px;
+  &:focus{
+    line-height: 32px;
+	  background-color: #006fe6;
+    border-radius: 4px;
+    padding: 0px 8px;
+    min-width: 90px;
+  }
+}
+// 重置按钮样式
+.resetBtn{
+  height: 32px;
+  line-height: 32px;
+  background-color: #fff;
+  color: #969696;
+  border: solid 1px #969696;
+  border-radius: 4px;
+  padding: 0px 8px;
+  min-width: 90px;
+  &:focus{
+    background-color: #fff;
+    color: #969696;
+    border: solid 1px #969696;
+    border-radius: 4px;
+    padding: 0px 8px;
+    min-width: 90px;
+  }
+}
+// 操作按钮样式
+.defaultBtn{
+  height: 28px;
+  line-height: 28px;
+	border: solid 1px #969696;
+  border-radius: 2px;
+  padding: 0px 8px;
+  min-width: 71px;
+  color: #969696;
+  &:hover{
+    border: solid 1px #969696;
+    background-color: #fff;
+    color: #969696;
+  }
+  &:focus{
+    border: solid 1px #969696;
+    background-color: #fff;
+    color: #969696;
+  }
+}
+.deleteBtn{
+  height: 28px;
+  line-height: 28px;
+	border: solid 1px #f62447;
+  border-radius: 2px;
+  padding: 0px 8px;
+  min-width: 71px;
+  color: #f62447;
+  &:hover{
+    border: solid 1px #f62447;
+    background-color: #fff;
+    color: #f62447;
+  }
+  &:focus{
+    border: solid 1px #f62447;
+    background-color: #fff;
+    color: #f62447;
+  }
+}
+.addBtn{
+  height: 28px;
+  line-height: 28px;
+	border: solid 1px #006fe6;
+  border-radius: 2px;
+  padding: 0px 8px;
+  min-width: 71px;
+  color: #006fe6;
+  &:hover{
+    border: solid 1px #006fe6;
+    background-color: #fff;
+    color: #006fe6;
+  }
+  &:focus{
+    border: solid 1px #006fe6;
+    background-color: #fff;
+    color: #006fe6;
+  }
+}
+// 操作按钮样式
+.defaultTextBtn{
+  color: #ffbc1b;
+  &:hover{
+    color: #ffbc1b;
+  }
+  &:focus{
+    color: #ffbc1b;
+  }
+}
+.deleteTextBtn{
+  color: #f62447;
+  &:hover{
+    color: #f62447;
+  }
+  &:focus{
+    color: #f62447;
+  }
+}
+.addTextBtn{
+  color: #006fe6;
+  &:hover{
+    color: #006fe6;
+  }
+  &:focus{
+    color: #006fe6;
+  }
+}
+.otherTextBtn{
+  color: #62d8ed;
+  &:hover{
+    color: #62d8ed;
+  }
+  &:focus{
+    color: #62d8ed;
+  }
+}
+// 列表样式
+.el-tablenew{
+  .el-table__row td {
+    border-bottom: 0px;
+    // border-color: #dfdfdf;
+    padding: 6px 0;
+  }
+  .el-table--border {
+    border-color: #dfdfdf;
+  }
+  .is-leaf {
+    background: #fafafa;
+    border-color: #dfdfdf !important;
+    color: #006fe6;
+    font-weight: normal;
+  }
+  th {
+    border-bottom: 0px !important;
+    border-color: #dfdfdf;
+  }
+  .table-row{
+    background-color: #fafafa;
+  }
+} 
+/*--------------table样式------------*/
+.el-table {
+  width: 100%;
+  border: solid 1px #dfdfdf;
+  .el-table__row {
+    font-family: Helvetica;
+    font-size: 14px;
+    color: #595959;
+  }
+  .cell{
+    line-height: 28px;
+  }
+  .el-checkbox__input.is-checked .el-checkbox__inner, 
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+    background-color: #006fe6;
+    border-color: #006fe6;
+  }
+  th{
+    .cell{
+      font-size: 14px;
+      color: #006fe6;
+      font-weight: normal;
+    }
+  }
+  .el-table__row .cell{
+    color: #000;
+  }
+  td,
+  th.is-leaf {
+    border-right: 1px solid #eeeeee;
+    border-bottom: 0 solid #ebeef5;
+  }
+  /*滚动条整体部分*/
+  ::-webkit-scrollbar {
+    width: 14px;
+  }
+  /*滚动条轨道 */
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  /*滚动条*/
+  ::-webkit-scrollbar-thumb {
+    background-color: #e7e7e7;
+    border-radius: 7px;
+  }
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+  background-color: #006fe6;
+}
+.pagePadd {
+  padding-bottom: 0px !important;
+}
+// 弹框样式
+.dialogs{
+  .el-dialog__header{
+    padding: 10px 20px;
+    border-bottom: 1px solid #dfdfdf;
+    .el-dialog__headerbtn{
+      top: 12px;
+    }
+    .el-dialog__title{
+      font-size: 16px;
+    }
+  }
+  .el-dialog__body{
+    padding: 26px;
+    .el-form-item{
+      margin-bottom: 18px;
+    }
+    .el-form-item__label{
+      font-weight: normal;
+      color: #323232 !important;
+    }
+    ::-ms-input-placeholder {
+      color: #969696 !important;
+    }
+    ::-webkit-input-placeholder {
+      color: #969696 !important;
+    }
+    ::-webkit-text-fill-color {
+      color: #969696 !important;
+    }
+    input{
+      color: #323232 !important;
+    }
+    textarea{
+      color: #323232 !important;
+    }
+  }
+  .el-dialog__footer{
+    padding: 0px 26px 26px;
+  }
+}
+// 左侧菜单选中样式icon
+.selectact{
+  display: none;
+}
+.selectnone{
+  display: initial;
+}
+.sidebar-container{
+  .is-active{
+    .selectact{
+      display: initial !important;
+    }
+    .selectnone{
+      display: none !important;
+    }
+  }
+}
+// 错误边框
+.error-border{
+  border: 1px solid #f62447 !important;
+}
+.el-table {
+  .el-table__fixed,
+  .el-table__fixed-right {
+    height:auto !important; // 此处的important表示优先于element.style
+    bottom:17px; // 改为自动高度后，设置与父容器的底部距离，则高度会动态改变
+    &::before {
+      background-color: transparent;
+    }
+  }
+}
+
